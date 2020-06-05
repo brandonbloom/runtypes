@@ -822,6 +822,11 @@ describe('change static type with Constraint', () => {
   return X;
 };
 
+// Static tests of assert.
+const U = Union(Record({ x: String }), Null);
+const x: unknown = { x: 'x' };
+U.assert(x);
+
 function expectLiteralField<O, K extends keyof O, V extends O[K]>(o: O, k: K, v: V) {
   expect(o[k]).toBe(v);
 }
